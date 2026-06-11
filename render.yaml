@@ -1,0 +1,37 @@
+# render.yaml - إعدادات نشر Render
+services:
+  - type: web
+    name: musaid-portal
+    env: python
+    plan: free
+    
+    # أمر البناء
+    buildCommand: |
+      apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-ara tesseract-ocr-eng
+      pip install -r requirements.txt
+    
+    # أمر التشغيل
+    startCommand: gunicorn -c gunicorn.conf.py app:app
+    
+    # متغيرات البيئة
+    envVars:
+      - key: MUSAID_ENV
+        value: production
+      
+      - key: MUSAID_SECRET_KEY
+        generateValue: true  # Render يولد مفتاح عشوائي تلقائياً
+      
+      - key: MUSAID_COOKIE_SECURE
+        value: "0"  # Render يوفر HTTPS تلقائياً
+      
+      - key: RENDER
+        value: "true"
+      
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+    
+    # قرص مستمر لحفظ البيانات
+    disk:
+      name: musaid-data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
