@@ -1,0 +1,60 @@
+# .gitignore - ملفات لا يجب رفعها على Git
+
+# البيئة
+.env
+.venv/
+venv/
+env/
+
+# المفاتيح السرية
+.secret_key
+*.pem
+*.key
+
+# قواعد البيانات (سنستخدم Disk على Render)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# الملفات المرفوعة (ستكون على Disk)
+uploads/
+!uploads/.gitkeep
+
+# السجلات
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
