@@ -1,0 +1,61 @@
+2026-06-07 05:07:10,242 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-07 05:07:55,435 event=teacher_add ip=127.0.0.1 user=28 email='teacher435@musaid.edu.ly'
+2026-06-07 05:08:08,793 event=teacher_delete ip=127.0.0.1 user=28 id=164
+2026-06-07 05:08:19,105 event=teacher_add ip=127.0.0.1 user=28 email='teacher804@musaid.edu.ly'
+2026-06-07 05:08:22,983 event=teacher_delete ip=127.0.0.1 user=28 id=165
+2026-06-07 05:09:20,821 event=login_failure ip=127.0.0.1 user=28 email='teacher324@musaid.edu.ly' locked=False
+2026-06-07 05:09:36,423 event=login_failure ip=127.0.0.1 user=28 email='teacher324@musaid.edu.ly' locked=False
+2026-06-07 05:10:34,310 event=teacher_edit ip=127.0.0.1 user=28 id=57 pw_changed=True
+2026-06-07 05:10:36,442 event=teacher_edit ip=127.0.0.1 user=28 id=57 pw_changed=True
+2026-06-07 05:11:06,207 event=login_success ip=127.0.0.1 user=57 role=teacher email='teacher324@musaid.edu.ly'
+2026-06-07 05:11:56,966 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 11:40:20,696 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 11:40:43,861 event=teacher_delete ip=127.0.0.1 user=28 id=25
+2026-06-09 11:40:53,709 event=teacher_delete ip=127.0.0.1 user=28 id=21
+2026-06-09 11:55:21,408 event=login_failure ip=127.0.0.1 user=- email='admin@emsaad.edu.ly' locked=False
+2026-06-09 11:55:46,050 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 11:56:03,286 event=logout ip=127.0.0.1 user=28
+2026-06-09 11:56:30,956 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 11:58:46,630 event=teacher_edit ip=127.0.0.1 user=28 id=70 pw_changed=True
+2026-06-09 11:58:55,391 event=logout ip=127.0.0.1 user=28
+2026-06-09 11:59:08,313 event=login_failure ip=127.0.0.1 user=- email='MOHAMED11@musaid.edu.ly' locked=False
+2026-06-09 11:59:27,336 event=login_failure ip=127.0.0.1 user=- email='MOHAMED11@musaid.edu.ly' locked=False
+2026-06-09 11:59:54,756 event=login_failure ip=127.0.0.1 user=- email='admin@emsaad.edu.ly' locked=False
+2026-06-09 12:00:09,456 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:03:39,468 event=password_reset ip=127.0.0.1 user=28 id=70 email='mohamed11@musaid.edu.ly'
+2026-06-09 12:03:55,132 event=password_reset ip=127.0.0.1 user=28 id=70 email='mohamed11@musaid.edu.ly'
+2026-06-09 12:04:57,107 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:05:38,251 event=teacher_edit ip=127.0.0.1 user=28 id=57 pw_changed=True
+2026-06-09 12:05:40,489 event=teacher_edit ip=127.0.0.1 user=28 id=57 pw_changed=True
+2026-06-09 12:06:21,740 event=login_success ip=127.0.0.1 user=57 role=teacher email='teacher324@musaid.edu.ly'
+2026-06-09 12:08:28,610 event=logout ip=127.0.0.1 user=57
+2026-06-09 12:08:48,244 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:09:13,169 event=teacher_edit ip=127.0.0.1 user=28 id=22 pw_changed=True
+2026-06-09 12:09:45,935 event=password_reset ip=127.0.0.1 user=28 id=70 email='mohamed11@musaid.edu.ly'
+2026-06-09 12:10:17,224 event=login_success ip=127.0.0.1 user=22 role=teacher email='teacher22@musaid.edu.ly'
+2026-06-09 12:11:22,437 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:12:23,226 event=logout ip=127.0.0.1 user=28
+2026-06-09 12:12:50,015 event=login_failure ip=127.0.0.1 user=- email='mohamed11@musaid.edu.ly' locked=False
+2026-06-09 12:13:08,344 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:13:53,835 event=teacher_edit ip=127.0.0.1 user=28 id=22 pw_changed=True
+2026-06-09 12:13:58,943 event=logout ip=127.0.0.1 user=28
+2026-06-09 12:14:16,550 event=login_success ip=127.0.0.1 user=22 role=teacher email='teacher22@musaid.edu.ly'
+2026-06-09 12:16:08,129 event=logout ip=127.0.0.1 user=22
+2026-06-09 12:17:49,312 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:27:16,563 event=password_change_success ip=127.0.0.1 user=28
+2026-06-09 12:27:21,908 event=logout ip=127.0.0.1 user=28
+2026-06-09 12:27:34,501 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:27:55,683 event=password_reset ip=127.0.0.1 user=28 id=19 email='teacher19@musaid.edu.ly'
+2026-06-09 12:28:44,828 event=teacher_add ip=127.0.0.1 user=28 email='teacher315@musaid.edu.ly'
+2026-06-09 12:29:22,520 event=logout ip=127.0.0.1 user=28
+2026-06-09 12:29:45,198 event=login_failure ip=127.0.0.1 user=- email='teacher335@musaid.edu.ly' locked=False
+2026-06-09 12:29:50,942 event=login_failure ip=127.0.0.1 user=- email='teacher335@musaid.edu.ly' locked=False
+2026-06-09 12:30:41,307 event=login_failure ip=127.0.0.1 user=- email='teacher335@musaid.edu.ly' locked=False
+2026-06-09 12:31:22,329 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-09 12:31:31,514 event=logout ip=127.0.0.1 user=28
+2026-06-09 12:32:04,572 event=login_success ip=127.0.0.1 user=166 role=teacher email='teacher315@musaid.edu.ly'
+2026-06-09 12:33:12,751 event=password_change_success ip=127.0.0.1 user=166
+2026-06-09 12:33:32,140 event=logout ip=127.0.0.1 user=166
+2026-06-09 12:34:01,547 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
+2026-06-10 04:47:13,793 event=login_failure ip=127.0.0.1 user=- email='admin@musaid.edu.ly' locked=False
+2026-06-10 04:47:41,926 event=login_success ip=127.0.0.1 user=28 role=admin email='admin@musaid.edu.ly'
