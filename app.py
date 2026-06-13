@@ -353,7 +353,13 @@ def generate_strong_password(length=12):
 # --- التعديل الجوهري: حل مشكلة المعاينة والتحميل (PDF) ---
 @app.route('/download/<filename>')
 def uploaded_file(filename):
-    # عدّاد إضافي: تحميل عند ?dl=1 وإلا تُحتسب مشاهدة. لا يؤثر على إرسال الملف.
+
+    full_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
+    print("FILE =", filename)
+    print("PATH =", full_path)
+    print("EXISTS =", os.path.exists(full_path))
+
     try:
         column = 'download_count' if request.args.get('dl') else 'view_count'
         conn = get_db_connection()
@@ -364,9 +370,12 @@ def uploaded_file(filename):
         conn.close()
     except Exception:
         pass
-    # as_attachment=False تضمن فتح الملف في المتصفح (المعاينة) بدلاً من إجبار التحميل
-    # Flask سيتعرف تلقائياً على امتداد .pdf ويرسل الرأس الصحيح للمتصفح
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=False)
+
+    return send_from_directory(
+        app.config['UPLOAD_FOLDER'],
+        filename,
+        as_attachment=False
+    )
 
 # --- خدمة ملفات PWA من جذر المشروع (Service Worker + Manifests) ---
 @app.route('/service-worker.js')
