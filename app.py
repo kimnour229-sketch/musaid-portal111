@@ -585,14 +585,24 @@ def upload_file():
 
         # إذا لا يوجد تكرار → نحفظ الملفات
         for file in files:
-            if file and file.filename != '':
-                original_filename = file.filename
-                ext = os.path.splitext(original_filename)[1]
-                base_name = secure_filename(os.path.splitext(original_filename)[0])
-                unique_filename = f"{int(time.time())}_{base_name}{ext}"
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], unique_filename))
+         if file and file.filename != '':
+           original_filename = file.filename
+        ext = os.path.splitext(original_filename)[1]
+        base_name = secure_filename(os.path.splitext(original_filename)[0])
+        unique_filename = f"{int(time.time())}_{base_name}{ext}"
 
-                conn.execute('''
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], unique_filename))
+
+        save_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+
+        print("SAVE PATH =", save_path)
+        print("FILE EXISTS =", os.path.exists(save_path))
+
+        conn.execute('''
+            INSERT INTO handouts (teacher_id, subject_id, dept_id, semester, title, notes, file_path)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (session['user_id'], subject_id, dept_id, semester, title, notes, unique_filename))
+        conn.execute('''
                     INSERT INTO handouts (teacher_id, subject_id, dept_id, semester, title, notes, file_path)
                     VALUES (?, ?, ?, ?, ?, ?, ?)
                 ''', (session['user_id'], subject_id, dept_id, semester, title, notes, unique_filename))
