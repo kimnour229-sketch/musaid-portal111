@@ -19,7 +19,15 @@ from pptx import Presentation   # مكتبة لقراءة PowerPoint
 from PIL import Image
 import fitz   # مكتبة PyMuPDF لقراءة PDF كصور عند الحاجة
 from flask import Flask
-
+from supabase import create_client
+import os
+url = "https://elkgsdvhzndajrucbxfb.supabase.co"
+key = "sb_publishable_BGTzfBsSnxrwQkPAFct-NA_EpNFQ4bS"
+supabase = create_client(url, key)
+try:
+    print("تم الاتصال بـ Supabase بنجاح ✅")
+except Exception as e:
+    print(f"حدث خطأ: {e}")
 app = Flask(__name__)
 # مفتاح الجلسة يُضبط أدناه بعد تعريف BASE_DIR (من متغير بيئي أو ملف ثابت)
 
@@ -583,30 +591,31 @@ def upload_file():
             flash("⚠️ تنبيه ذكي: هناك مذكرة مشابهة مرفوعة مسبقًا لهذه المادة.")
             return redirect(url_for('teacher_dashboard'))
 
-        # إذا لا يوجد تكرار → نحفظ الملفات
+       # إذا لا يوجد تكرار → نحفظ الملفات
         for file in files:
          if file and file.filename != '':
-           original_filename = file.filename
+          original_filename = file.filename
         ext = os.path.splitext(original_filename)[1]
         base_name = secure_filename(os.path.splitext(original_filename)[0])
         unique_filename = f"{int(time.time())}_{base_name}{ext}"
 
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], unique_filename))
+        file_data = file.read()
 
-        save_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+        supabase.storage.from_("pdfs").upload(
+            path=unique_filename,
+            file=file_data,
+            file_options={"content-type": file.content_type}
+        )
+
+        save_path = unique_filename
 
         print("SAVE PATH =", save_path)
-        print("FILE EXISTS =", os.path.exists(save_path))
 
         conn.execute('''
             INSERT INTO handouts (teacher_id, subject_id, dept_id, semester, title, notes, file_path)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         ''', (session['user_id'], subject_id, dept_id, semester, title, notes, unique_filename))
-        conn.execute('''
-                    INSERT INTO handouts (teacher_id, subject_id, dept_id, semester, title, notes, file_path)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
-                ''', (session['user_id'], subject_id, dept_id, semester, title, notes, unique_filename))
-        
+
         conn.commit()
         flash('✅ تم رفع الملفات بنجاح!')
     except Exception as e:
